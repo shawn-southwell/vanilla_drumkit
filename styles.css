@@ -21,6 +21,7 @@ body{
   border: 1px solid black;
   flex-direction: column;
   width: 6rem;
+  border-radius: 50%;
 }
 
 #buttonContainer div:hover{
@@ -28,6 +29,7 @@ body{
 }
 
 .playing {
-  background-color: black;
-  font-size: 100px;
+  border: 1px solid lightcoral !important;
+  transform: scaleX(1,1.1);
+  box-shadow: 0px 0px 1px;
 }
