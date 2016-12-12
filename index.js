@@ -19,14 +19,10 @@ function playSound(el,file){
   audio.play();
 }
 
-function removeSound(el){
-
-}
-
 document.addEventListener('keydown', (e) => {
   const file = soundz[String(e.which)];
   if (!file) return;
   const el = document.querySelector(`[data-sound="${file}"]`);
   playSound(el,file);
-  setTimeout(()=> el.classList.remove('playing') , 50);
+  setTimeout(() => el.classList.remove('playing') , 50);
 });
