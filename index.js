@@ -13,16 +13,14 @@ const soundz = {
   186: 'sounds/tink.wav',
   32: 'sounds/tom.wav'
 }
-function playSound(el,file){
-  el.classList.add('playing');
-  const audio = new Audio(file);
-  audio.play();
-}
-
-document.addEventListener('keydown', (e) => {
+function playSound(e){
   const file = soundz[String(e.which)];
   if (!file) return;
   const el = document.querySelector(`[data-sound="${file}"]`);
-  playSound(el,file);
-  setTimeout(() => el.classList.remove('playing') , 50);
-});
+  const audio = new Audio(file);
+  audio.play();
+  el.classList.add('playing');
+  setTimeout(() => el.classList.remove('playing'), 50);
+}
+
+document.addEventListener('keydown', playSound)
