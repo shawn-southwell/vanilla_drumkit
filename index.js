@@ -16,10 +16,10 @@ const soundz = {
 
 document.addEventListener('keydown', (e) => {
   const file = soundz[String(e.which)];
-  const dataAttr = file.slice(file.indexOf('/') + 1,file.indexOf('.'));
-  const el = document.querySelectorAll(`[data-sound=${dataAttr}]`);
-  el[0].classList.add('playing');
+  if (!file) return;
+  const el = document.querySelector(`[data-sound="${file}"]`);
+  el.classList.add('playing');
   const audio = new Audio(file);
   audio.play();
-  setTimeout(()=>{el[0].classList.remove('playing')}, 50);
+  setTimeout(()=> el.classList.remove('playing') , 50);
 });
